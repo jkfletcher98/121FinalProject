@@ -33,3 +33,12 @@ class Search implements hasMenu {
 			} // end if
 		} // end while
 	} // end start
+
+	public void byTitle(){
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("What book are you looking for? ");
+		String response = input.nextLine();
+
+		// figure out how to search for title in csv
+	}
