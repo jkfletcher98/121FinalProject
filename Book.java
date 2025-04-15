@@ -1,4 +1,4 @@
-class Book {
+class Book implements Serializable {
 	private String title;
 	private String author;
 	private String genre;
@@ -53,5 +53,9 @@ class Book {
 	public void printBook(){
 		System.out.println(this.title + "by " + this.author + "(" + this.location + ")");
 	} // end printBook
+
+	public void edit(){
+		this.printBook();
+	} // end edit
 
 } // end class def
