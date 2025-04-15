@@ -2,72 +2,92 @@
 ### Personal Library Database
 Add and remove books; print entire collection; search for books by title, author, genre, series, and location
 
-## hasMenu()
+## Book
 ```
-String menu()
-void start()
-```
-## Book()
-```
+implements serilizable
+
 String title
 String author
 String genre
 String location
 
-create setters and getters for each variable
-
 void printBook()
-  book by author (location)
-```
+	" title by author (location)"
 
-## Search
-```
-byTitle
-  ask for title user wants
-  search gets input
-  go through each book in library
-  if search is equal to book title
-    printBook
-  else
-    "You don't have that book"
-
-byAuthor
-  ask for author user wants
-  search gets input
-  go through each book in library
-  if serach is equal to book author
-    printBook
-  else
-    "You don't have anything by that author"
-
-byGenre
-  ask for genre user wants
-  search gets input
-  go through each book in library
-  if search is equal to book genre
-    printBook
-  else
-    "You don't have anything in that genre"
+void edit()
+	printBook
+	ask for title
+	ask for author
+	ask for genre
+	ask for location
+	append book
 ```
 
 ## Library
 ```
-library gets library file
+arraylist books
 
-printLibrary
-  for each book in library
-    printBook
+void printLibrary()
+	for each book in books
+		printBook
 
-addBook
-  ask for title, author, genre, and location
-  append new book to library
+void addBook()
+	ask for title, author, genre, and location
+	append new book to books
 
-removeBook
-  ask for book user wants to remove
-  delete book from library
+void removeBook()
+	search for book
+	delete
 
-editBook
-  ask for book user wants to edit
-  ask for title, author, genre, and location
-  update library
-```
+void search()
+	ask how they would like to search
+	byTitle()
+		ask for title
+		if book title matches
+			printBook
+	byAuthor()
+		ask for author
+		if book author matches
+			printBook
+	byGenre()
+		ask for genre
+		if book genre matches
+			printBook
+
+void editBook()
+	book edit
+
+string menu()
+	0) Exit
+	1) Print library
+	2) Search
+	3) Edit book
+	4) Add book
+	5) Remove book
+	get response
+	return response
+
+void process()
+	start menu
+	create keepGoing loop
+		if response is 0
+			end loop
+		if response is 1
+			printLibrary
+		if response is 2
+			search
+		if response is 3
+			edit
+		if response is 4
+			addBook
+		if response if 5
+			removeBook
+		else
+			error
+
+saveBooks()
+	file io
+
+loadBooks()
+	file io
+```	
