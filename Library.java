@@ -14,29 +14,29 @@ class Library {
 		new book("Book 3", "Author 3", "Genre 3", "W-1");
 	} // end loadSampleBooks
 
-	//public void saveBooks(){
-		//try {
-			//FileOutputStream fo = new FileOutputStream("library.txt");
-			//ObjectOutputStream obOut = newObjectOutputStream(fo);
-			//obOut.writeObject(books);
-			//obOut.close();
-			//fo.close();
-		//} catch {
-			//System.out.println(e.getMessage());
-		//} // end try
-	//} // end saveBooks
+	public void saveBooks(){
+		try {
+			FileOutputStream fo = new FileOutputStream("library.txt");
+			ObjectOutputStream obOut = newObjectOutputStream(fo);
+			obOut.writeObject(books);
+			obOut.close();
+			fo.close();
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		} // end try
+	} // end saveBooks
 
-	//public void loadBooks(){
-		//try {
-			//FileInputStream fi = new FileInputStream("library.txt");
-			//ObjectInputStream obIn = new ObjectInputStream(fi);
-			//books = (BookList)onIn.readObject();
-			//obIn.close;
-			//fi.close;
-		//} catch {
-			//System.out.println(e.getMessage());
-		//} // end try
-	//} // end loadBooks
+	public void loadBooks(){
+		try {
+			FileInputStream fi = new FileInputStream("library.txt");
+			ObjectInputStream obIn = new ObjectInputStream(fi);
+			books = (BookList)onIn.readObject();
+			obIn.close;
+			fi.close;
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		} // end try
+	} // end loadBooks
 
 	public String menu(){
 		Scanner input = new Scanner(System.in);
@@ -78,28 +78,6 @@ class Library {
 		} // end while
 	} // end process
 
-	//public void printLibrary(){
-		//for (book in books){
-			//book.printBook();
-		//} // end for
-	//} // end printLibrary
-
-	//public void addBook(){
-		//input Scanner = new Scanner(System.in);
-
-		//Book book = new Book;
-
-		//System.out.println("Title: ");
-		//String book.title = input.nextLine();
-		//System.out.println("Author: ");
-		//String book.author = input.nextLine();
-		//System.out.println("Genre: ");
-		//String book.genre = input.nextLine();
-		//System.out.println("Location: ");
-		//String book.location = input.nextLine();
-
-	//} // end addBook
-
 	public String findBook(){
 		Scanner input = new Scanner(system.in);
 
@@ -114,8 +92,6 @@ class Library {
 			} // end if
 		}// end for
 	}// end findBook
-
-
 
 } // end Library
 
