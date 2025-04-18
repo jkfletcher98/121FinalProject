@@ -6,12 +6,13 @@ class Library {
 
 	public Library(){
 		this.loadSampleBooks();
+		this.process();
 	}
 
 	public void loadSampleBooks(){
-		new book("Book 1", "Author 1", "Genre 1", "W-1");
-		new book("Book 2", "Author 2", "Genre 2", "W-1");
-		new book("Book 3", "Author 3", "Genre 3", "W-1");
+		new Book("Book 1", "Author 1", "Genre 1", "W-1");
+		new Book("Book 2", "Author 2", "Genre 2", "W-1");
+		new Book("Book 3", "Author 3", "Genre 3", "W-1");
 	} // end loadSampleBooks
 
 	public void saveBooks(){
@@ -31,8 +32,8 @@ class Library {
 			FileInputStream fi = new FileInputStream("library.txt");
 			ObjectInputStream obIn = new ObjectInputStream(fi);
 			books = (BookList)onIn.readObject();
-			obIn.close;
-			fi.close;
+			obIn.close();
+			fi.close();
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		} // end try
@@ -65,7 +66,7 @@ class Library {
 			} else if (response.equals("1")){
 				this.printLibrary();
 			} else if (response.equals("2")){
-				this.search();
+				this.findBook();
 			} else if (response.equals("3")){
 				this.editBook();
 			} else if (reponse.equals("4")){
@@ -78,13 +79,19 @@ class Library {
 		} // end while
 	} // end process
 
+	public void printLibrary(){
+		for (Book b: books){
+			book.printBook();
+		} // end for loop
+	} // end printLibrary
+
 	public String findBook(){
 		Scanner input = new Scanner(system.in);
 
 		System.out.println("What are you looiking for?" );
 		String response = input.nextLine();
 
-		for (book in books){
+		for (Book b: books){
 			if (response.equals(book.title)){
 				return book;
 			} else {
@@ -92,6 +99,18 @@ class Library {
 			} // end if
 		}// end for
 	}// end findBook
+
+	public void editBook(){
+		System.out.println("Under construction");
+	} // end editBook
+
+	public void addBook(){
+		System.out.println("Under construction");
+	} // end addBook
+
+	public void removeBook(){
+		System.out.println("Under construction");
+	} // end removeBook
 
 } // end Library
 
