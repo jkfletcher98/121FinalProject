@@ -4,6 +4,16 @@ import java.io.*;
 class Library {
 	BookList books = new BookList;
 
+	public Library(){
+		this.loadSampleBooks();
+	}
+
+	public void loadSampleBooks(){
+		new book = ("Book 1", "Author 1", "Genre 1", "W-1");
+		new book = ("Book 2", "Author 2", "Genre 2", "W-1");
+		new book = ("Book 3", "Author 3", "Genre 3", "W-1");
+	} // end loadSampleBooks
+
 	public void saveBooks(){
 		try {
 			FileOutputStream fo = new FileOutputStream("library.txt");
@@ -74,11 +84,37 @@ class Library {
 	} // end printLibrary
 
 	public void addBook(){
+		input Scanner = new Scanner(System.in);
+
+		Book book = new Book;
+
 		System.out.println("Title: ");
+		String book.title = input.nextLine();
 		System.out.println("Author: ");
+		String book.author = input.nextLine();
 		System.out.println("Genre: ");
+		String book.genre = input.nextLine();
 		System.out.println("Location: ");
+		String book.location = input.nextLine();
+
 	} // end addBook
+
+	public String findBook(){
+		Scanner input = new Scanner(system.in);
+
+		System.out.println("What are you looiking for?" );
+		String response = input.nextLine();
+
+		for (book in books){
+			if (response.equals(book.title)){
+				return book;
+			} else {
+				return null;
+			} // end if
+		}// end for
+	}// end findBook
+
+
 
 } // end Library
 
