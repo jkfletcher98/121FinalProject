@@ -2,41 +2,41 @@ import java.util.*;
 import java.io.*;
 
 class Library {
-	BookList books = new BookList;
+	BookList books = new BookList();
 
 	public Library(){
 		this.loadSampleBooks();
 	}
 
 	public void loadSampleBooks(){
-		new book = ("Book 1", "Author 1", "Genre 1", "W-1");
-		new book = ("Book 2", "Author 2", "Genre 2", "W-1");
-		new book = ("Book 3", "Author 3", "Genre 3", "W-1");
+		new book("Book 1", "Author 1", "Genre 1", "W-1");
+		new book("Book 2", "Author 2", "Genre 2", "W-1");
+		new book("Book 3", "Author 3", "Genre 3", "W-1");
 	} // end loadSampleBooks
 
-	public void saveBooks(){
-		try {
-			FileOutputStream fo = new FileOutputStream("library.txt");
-			ObjectOutputStream obOut = newObjectOutputStream(fo);
-			obOut.writeObject(books);
-			obOut.close();
-			fo.close();
-		} catch {
-			System.out.println(e.getMessage());
-		} // end try
-	} // end saveBooks
+	//public void saveBooks(){
+		//try {
+			//FileOutputStream fo = new FileOutputStream("library.txt");
+			//ObjectOutputStream obOut = newObjectOutputStream(fo);
+			//obOut.writeObject(books);
+			//obOut.close();
+			//fo.close();
+		//} catch {
+			//System.out.println(e.getMessage());
+		//} // end try
+	//} // end saveBooks
 
-	public void loadBooks(){
-		try {
-			FileInputStream fi = new FileInputStream("library.txt");
-			ObjectInputStream obIn = new ObjectInputStream(fi);
-			books = (BookList)onIn.readObject();
-			obIn.close;
-			fi.close;
-		} catch {
-			System.out.println(e.getMessage());
-		} // end try
-	} // end loadBooks
+	//public void loadBooks(){
+		//try {
+			//FileInputStream fi = new FileInputStream("library.txt");
+			//ObjectInputStream obIn = new ObjectInputStream(fi);
+			//books = (BookList)onIn.readObject();
+			//obIn.close;
+			//fi.close;
+		//} catch {
+			//System.out.println(e.getMessage());
+		//} // end try
+	//} // end loadBooks
 
 	public String menu(){
 		Scanner input = new Scanner(System.in);
@@ -56,20 +56,21 @@ class Library {
 	} // end menu
 
 	public void process(){
+		String response = menu();
 		boolean keepGoing = true;
 		while (keepGoing) {
 			String response = menu();
-			if (response.equals("0"){
+			if (response.equals("0")){
 				keepGoing = false;
-			} else if (response.equals("1"){
+			} else if (response.equals("1")){
 				this.printLibrary();
-			} else if (response.equals("2"){
+			} else if (response.equals("2")){
 				this.search();
-			} else if (response.equals("3"){
+			} else if (response.equals("3")){
 				this.editBook();
-			} else if (reponse.equals("4"){
+			} else if (reponse.equals("4")){
 				this.addBook();
-			} else if (response.equals("5"){
+			} else if (response.equals("5")){
 				this.removeBook();
 			} else {
 				System.out.println("Please enter 0-5");
@@ -77,27 +78,27 @@ class Library {
 		} // end while
 	} // end process
 
-	public void printLibrary(){
-		for (book in books){
-			book.printBook();
-		} // end for
-	} // end printLibrary
+	//public void printLibrary(){
+		//for (book in books){
+			//book.printBook();
+		//} // end for
+	//} // end printLibrary
 
-	public void addBook(){
-		input Scanner = new Scanner(System.in);
+	//public void addBook(){
+		//input Scanner = new Scanner(System.in);
 
-		Book book = new Book;
+		//Book book = new Book;
 
-		System.out.println("Title: ");
-		String book.title = input.nextLine();
-		System.out.println("Author: ");
-		String book.author = input.nextLine();
-		System.out.println("Genre: ");
-		String book.genre = input.nextLine();
-		System.out.println("Location: ");
-		String book.location = input.nextLine();
+		//System.out.println("Title: ");
+		//String book.title = input.nextLine();
+		//System.out.println("Author: ");
+		//String book.author = input.nextLine();
+		//System.out.println("Genre: ");
+		//String book.genre = input.nextLine();
+		//System.out.println("Location: ");
+		//String book.location = input.nextLine();
 
-	} // end addBook
+	//} // end addBook
 
 	public String findBook(){
 		Scanner input = new Scanner(system.in);
