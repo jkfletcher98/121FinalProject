@@ -4,6 +4,10 @@ import java.io.*;
 class Library {
 	BookList books = new BookList();
 
+	public static void main(String[] args){
+		new Library();
+	}
+
 	public Library(){
 		this.loadSampleBooks();
 		this.process();
@@ -18,7 +22,7 @@ class Library {
 	public void saveBooks(){
 		try {
 			FileOutputStream fo = new FileOutputStream("library.txt");
-			ObjectOutputStream obOut = newObjectOutputStream(fo);
+			ObjectOutputStream obOut = new ObjectOutputStream(fo);
 			obOut.writeObject(books);
 			obOut.close();
 			fo.close();
@@ -31,7 +35,7 @@ class Library {
 		try {
 			FileInputStream fi = new FileInputStream("library.txt");
 			ObjectInputStream obIn = new ObjectInputStream(fi);
-			books = (BookList)onIn.readObject();
+			books = (BookList)obIn.readObject();
 			obIn.close();
 			fi.close();
 		} catch(Exception e) {
@@ -53,11 +57,10 @@ class Library {
 		System.out.println("What would you like to do? ");
 		String response = input.nextLine();
 
-		return reponse;
+		return response;
 	} // end menu
 
 	public void process(){
-		String response = menu();
 		boolean keepGoing = true;
 		while (keepGoing) {
 			String response = menu();
@@ -69,7 +72,7 @@ class Library {
 				this.findBook();
 			} else if (response.equals("3")){
 				this.editBook();
-			} else if (reponse.equals("4")){
+			} else if (response.equals("4")){
 				this.addBook();
 			} else if (response.equals("5")){
 				this.removeBook();
@@ -81,24 +84,25 @@ class Library {
 
 	public void printLibrary(){
 		for (Book b: books){
-			book.printBook();
+			b.printBook();
 		} // end for loop
 	} // end printLibrary
 
 	public String findBook(){
-		Scanner input = new Scanner(system.in);
+		Scanner input = new Scanner(System.in);
 
 		System.out.println("What are you looiking for?" );
 		String response = input.nextLine();
 
+		String result = null;
+
 		for (Book b: books){
-			if (response.equals(book.title)){
-				return book;
-			} else {
-				return null;
+			if (response.equals(b.title)){
+				result = b.title;
 			} // end if
-		}// end for
-	}// end findBook
+		} // end for
+		return result;
+	} // end findBook
 
 	public void editBook(){
 		System.out.println("Under construction");

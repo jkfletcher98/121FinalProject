@@ -1,11 +1,5 @@
-Library.class: Library.java hasMenu.java
+Library.class: Library.java
 	javac Library.java
-
-Search.class: Search.java hasMenu.java
-	javac Search.class
-
-hasMenu.class: hasMenu.java
-	javac hasMenu.java
 
 Book.class: Book.java
 	javac Book.java

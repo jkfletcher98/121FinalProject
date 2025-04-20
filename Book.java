@@ -1,8 +1,11 @@
-class Book implements Serializable {
-	private String title;
-	private String author;
-	private String genre;
-	private String location;
+import java.util.*;
+import java.io.*;
+
+class Book implements Serializable{
+	String title;
+	String author;
+	String genre;
+	String location;
 
 	public Book(){
 		this.title = "";
