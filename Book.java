@@ -54,7 +54,7 @@ class Book implements Serializable{
 	} // end getLocation
 
 	public void printBook(){
-		System.out.println(this.title + "by " + this.author + "(" + this.location + ")");
+		System.out.println(this.title + " by " + this.author + "(" + this.location + ")");
 	} // end printBook
 
 	public void edit(){

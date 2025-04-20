@@ -14,9 +14,9 @@ class Library {
 	}
 
 	public void loadSampleBooks(){
-		new Book("Book 1", "Author 1", "Genre 1", "W-1");
-		new Book("Book 2", "Author 2", "Genre 2", "W-1");
-		new Book("Book 3", "Author 3", "Genre 3", "W-1");
+		books.add(new Book("Book 1", "Author 1", "Fantasy", "W-1"));
+		books.add(new Book("Book 2", "Author 2", "History", "W-1"));
+		books.add(new Book("Book 3", "Author 3", "Biography", "W-1"));
 	} // end loadSampleBooks
 
 	public void saveBooks(){
@@ -86,6 +86,7 @@ class Library {
 		for (Book b: books){
 			b.printBook();
 		} // end for loop
+		System.out.println();
 	} // end printLibrary
 
 	public Book findBook(){
@@ -98,7 +99,7 @@ class Library {
 
 		for (Book b: books){
 			if (response.equals(b.title)){
-				result = b.title;
+				result = b;
 			} // end if
 		} // end for
 		return result;
@@ -107,11 +108,15 @@ class Library {
 	public void printResult(){
 		Book result = findBook();
 
+		System.out.println();
+
 		if (result != null){
 			result.printBook();
 		} else {
 			System.out.println("Book not found");
 		} // end if
+
+		System.out.println();
 	} // end printResult()
 
 	public void editBook(){
