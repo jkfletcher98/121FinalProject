@@ -104,7 +104,7 @@ class Library {
 		} // end for
 		return result;
 	} // end findBook
-
+:
 	public void printResult(){
 		Book result = findBook();
 
@@ -124,11 +124,40 @@ class Library {
 	} // end editBook
 
 	public void addBook(){
-		System.out.println("Under construction");
+		Scanner input = new Scanner(System.in);
+
+		System.out.println();
+		System.out.println("Input new book!");
+		System.out.println("Title: ");
+		String newTitle = input.nextLine();
+		System.out.println("Author: ");
+		String newAuthor = input.nextLine();
+		System.out.println("Genre: ");
+		String newGenre = input.nextLine();
+		System.out.println("Location: ");
+		String newLocation = input.nextLine();
+
+		books.add(new Book(newTitle, newAuthor, newGenre, newLocation));
+		this.saveBooks();
+
+		System.out.println("Book added!");
+		System.out.println();
 	} // end addBook
 
 	public void removeBook(){
-		System.out.println("Under construction");
+		Scanner input = new Scanner(System.in);
+
+		boolean keepGoing = true;
+		whiel (keepGoing){
+			System.out.println("What would you like to remove?");
+			String response = input.nextLine();
+
+			response.printResult();
+
+			System.out.println("Is this correct?(y/n)");
+			String confirm = input.nextLine();
+			if (confirm.equals("y")){
+				books.remove(
 	} // end removeBook
 
 } // end Library
