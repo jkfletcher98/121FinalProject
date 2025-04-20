@@ -69,7 +69,7 @@ class Library {
 			} else if (response.equals("1")){
 				this.printLibrary();
 			} else if (response.equals("2")){
-				this.findBook();
+				this.printResult();
 			} else if (response.equals("3")){
 				this.editBook();
 			} else if (response.equals("4")){
@@ -88,13 +88,13 @@ class Library {
 		} // end for loop
 	} // end printLibrary
 
-	public String findBook(){
+	public Book findBook(){
 		Scanner input = new Scanner(System.in);
 
 		System.out.println("What are you looiking for?" );
 		String response = input.nextLine();
 
-		String result = null;
+		Book result = null;
 
 		for (Book b: books){
 			if (response.equals(b.title)){
@@ -103,6 +103,16 @@ class Library {
 		} // end for
 		return result;
 	} // end findBook
+
+	public void printResult(){
+		Book result = findBook();
+
+		if (result != null){
+			result.printBook();
+		} else {
+			System.out.println("Book not found");
+		} // end if
+	} // end printResult()
 
 	public void editBook(){
 		System.out.println("Under construction");
