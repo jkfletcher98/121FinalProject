@@ -69,7 +69,7 @@ class Library {
 			} else if (response.equals("1")){
 				this.printLibrary();
 			} else if (response.equals("2")){
-				this.printResult();
+				this.searchEngine();
 			} else if (response.equals("3")){
 				this.editBook();
 			} else if (response.equals("4")){
@@ -89,38 +89,34 @@ class Library {
 		System.out.println();
 	} // end printLibrary
 
-	public Book findBook(){
-		Scanner input = new Scanner(System.in);
-
-		System.out.println("What are you looiking for?" );
-		String response = input.nextLine();
-
+	public Book findBook(String search){
 		Book result = null;
 
 		for (Book b: books){
-			if (response.equals(b.title)){
+			if (search.equals(b.title)){
 				result = b;
 			} // end if
 		} // end for
 		return result;
 	} // end findBook
-:
-	public void printResult(){
-		Book result = findBook();
 
-		System.out.println();
+	public void searchEngine(){
+		Scanner input = new Scanner(System.in);
 
-		if (result != null){
-			result.printBook();
-		} else {
+		System.out.println("What are you looking for?" );
+		String search = input.nextLine();
+
+		Book result = this.findBook(search);
+
+		if (result == null){
 			System.out.println("Book not found");
-		} // end if
-
-		System.out.println();
-	} // end printResult()
+		} else {
+			result.printBook();
+		} //end if
+	} // end searchEngine
 
 	public void editBook(){
-		System.out.println("Under construction");
+		
 	} // end editBook
 
 	public void addBook(){
@@ -146,18 +142,30 @@ class Library {
 
 	public void removeBook(){
 		Scanner input = new Scanner(System.in);
-
+		
 		boolean keepGoing = true;
-		whiel (keepGoing){
+		while (keepGoing){
 			System.out.println("What would you like to remove?");
-			String response = input.nextLine();
+			String search = input.nextLine();
 
-			response.printResult();
+			Book result = this.findBook(search);
+		
+			if (result != null){
+				result.printBook();
+				System.out.println("Is this correct?(y/n)");
+				String confirm = input.nextLine();
 
-			System.out.println("Is this correct?(y/n)");
-			String confirm = input.nextLine();
-			if (confirm.equals("y")){
-				books.remove(
+				if (confirm.equals("y")){
+					books.remove(result);
+					this.saveBooks();
+					System.out.println("Book removed!");
+					keepGoing = false;
+				} // end if
+			} else {
+				System.out.println("Book not found.");
+				keepGoing = false;
+			} // end if
+		} // end while
 	} // end removeBook
 
 } // end Library
