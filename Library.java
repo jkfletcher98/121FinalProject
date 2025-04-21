@@ -102,6 +102,7 @@ class Library {
 
 	public void searchEngine(){
 		Scanner input = new Scanner(System.in);
+		System.out.println();
 
 		System.out.println("What are you looking for?" );
 		String search = input.nextLine();
@@ -113,10 +114,30 @@ class Library {
 		} else {
 			result.printBook();
 		} //end if
+		System.out.println();
 	} // end searchEngine
 
 	public void editBook(){
-		
+		Scanner input = new Scanner(System.in);
+		System.out.println();
+
+		System.out.println("What would you like to edit?");
+		String search = input.nextLine();
+
+		Book result = this.findBook(search);
+
+		if (result == null){
+			System.out.println("Book not found");
+		} else {
+			result.printBook();
+			result.edit();
+
+			this.saveBooks();
+			System.out.println("Book updated!");
+		} // end if
+
+		System.out.println();
+
 	} // end editBook
 
 	public void addBook(){

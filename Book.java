@@ -54,11 +54,27 @@ class Book implements Serializable{
 	} // end getLocation
 
 	public void printBook(){
-		System.out.println(this.title + " by " + this.author + "(" + this.location + ")");
+		System.out.println(this.title + " by " + this.author + "(" + this.genre + ")" + " - " + this.location);
 	} // end printBook
 
 	public void edit(){
-		this.printBook();
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("Title:");
+		String editTitle = input.nextLine();
+		this.title = editTitle;
+
+		System.out.println("Author:");
+		String editAuthor = input.nextLine();
+		this.author = editAuthor;
+
+		System.out.println("Genre:");
+		String editGenre = input.nextLine();
+		this.genre = editGenre;
+
+		System.out.println("Location:");
+		String editLocation = input.nextLine();
+		this.location = editLocation;
 	} // end edit
 
 } // end class def
