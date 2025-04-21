@@ -9,7 +9,8 @@ class Library {
 	}
 
 	public Library(){
-		this.loadSampleBooks();
+		//this.loadSampleBooks();
+		this.loadBooks();
 		this.process();
 	}
 
