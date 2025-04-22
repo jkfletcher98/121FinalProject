@@ -84,6 +84,8 @@ class Library {
 	} // end process
 
 	public void printLibrary(){
+		books.sort(Comparator.comparing(Book::getTitle));
+
 		for (Book b: books){
 			b.printBook();
 		} // end for loop
