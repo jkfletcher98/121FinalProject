@@ -70,7 +70,7 @@ class Library {
 			} else if (response.equals("1")){
 				this.printLibrary();
 			} else if (response.equals("2")){
-				this.searchEngine();
+				this.searchMenu();
 			} else if (response.equals("3")){
 				this.editBook();
 			} else if (response.equals("4")){
@@ -90,6 +90,29 @@ class Library {
 		System.out.println();
 	} // end printLibrary
 
+	public void searchMenu(){
+		Scanner input = new Scanner(System.in);
+
+		System.out.println();
+		System.out.println("How would you like to search?");
+
+		System.out.println("0) Title");
+		System.out.println("1) Author");
+		System.out.println("2) Genre");
+
+		String response = input.nextLine();
+
+		if (response.equals("0")){
+			this.searchByTitle();
+		} else if (response.equals("1")){
+			this.searchByAuthor();
+		} else if (response.equals("2")){
+			this.searchByGenre();
+		} else {
+			System.out.println("Please enter 0-2");
+		} // end if
+	}// end searchMenu
+
 	public Book findBook(String search){
 		Book result = null;
 
@@ -101,7 +124,7 @@ class Library {
 		return result;
 	} // end findBook
 
-	public void searchEngine(){
+	public void searchByTitle(){
 		Scanner input = new Scanner(System.in);
 		System.out.println();
 
@@ -116,7 +139,40 @@ class Library {
 			result.printBook();
 		} //end if
 		System.out.println();
-	} // end searchEngine
+	} // end searchByTitle
+
+	public void searchByGenre(){
+		Scanner input = new Scanner(System.in);
+		System.out.println();
+
+		System.out.println("What genre are you looking for?");
+		String search = input.nextLine();
+
+		for (Book b: books){
+			if (search.equals(b.genre)){
+				b.printBook();
+			} // end if
+		} // end for
+
+		System.out.println();
+	} // end searchByGenre
+
+	public void searchByAuthor(){
+		Scanner input = new Scanner(System.in);
+		System.out.println();
+
+		System.out.println("Who are you looking for?");
+		String search = input.nextLine();
+
+		for (Book b: books){
+			if (search.equals(b.author)){
+				b.printBook();
+			} // end if
+		} // end for
+
+		System.out.println();
+	} // end searchByAuthor
+
 
 	public void editBook(){
 		Scanner input = new Scanner(System.in);
